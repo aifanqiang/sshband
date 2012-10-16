@@ -1,0 +1,6 @@
+#labels Featured
+#Most asked questions.
+
+=== I login as _root_, but I can't see bandwidth information in database for _root_ user ===
+
+sshband will not count the bandwidth for root user(which uid=0).
