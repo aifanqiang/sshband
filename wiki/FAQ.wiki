@@ -1,5 +1,5 @@
+#summary Most asked questions.
 #labels Featured
-#Most asked questions.
 
 === I login as _root_, but I can't see bandwidth information in database for _root_ user ===
 
