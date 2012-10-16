@@ -1,30 +1,30 @@
-#summary One-sentence summary of this page.
+#summary Compiling and installing guide.
 
-= 1.获取源码 =
+= 1.Get source =
 
-执行下面的命令从 svn 中获取最新版本的代码：
+Get the latest develop version of sshband
 
 {{{
 $ svn checkout http://sshband.googlecode.com/svn/trunk/ sshband 
 }}}
 
-= 2.编译和安装 =
+= 2.Compile and install =
 
-sshband 使用了 libpcap 和 libmysqlclient，在编译之前，需要安装这两个软件开发包，然后才能进行编译。
+Before compiling, you need to install libpcap-devel and libmysqlclient-dev
 
-Fedora/CentOS 用户执行:
+On Fedora/CentOS :
 
 {{{
 # yum install libpcap-devel libmysqlclient-dev
 }}}
 
-Debian/Ubuntu 用户执行:
+On Debian/Ubuntu:
 
 {{{
 # apt-get install libpcap-dev libmysqlclient-dev
 }}}
 
-接着可以编译并安装 sshband。
+Now we are ready for compile.
 
 {{{
 cd sshband
@@ -32,5 +32,5 @@ make
 make install
 }}}
 
-最后打开配置文件 /etc/sshband.conf，根据其中的提示修改，安装就完成了。
-如果你不想手动创建表，可以直接使用配置文件中默认的表结构，只要将源码目录下的 sshband.sql 导入 MySQL 数据库即可。
+Open /etc/sshband.conf with your favorite text editor, configure sshband to fit your need.
+sshband.sql is MySQL script which could create a MySQL table for the default configuration.

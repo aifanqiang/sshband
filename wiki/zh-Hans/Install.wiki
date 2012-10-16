@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary 编译和安装说明。
 
 = 1.获取源码 =
 
