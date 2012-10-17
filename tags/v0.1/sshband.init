@@ -1,0 +1,57 @@
+#!/bin/sh
+# Start/stop the sshband daemon.
+
+### BEGIN INIT INFO
+# Provides:          sshband
+# Required-Start:    $network $syslog
+# Should-Start:      
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: sshband Daemon 
+# Description:       ssh traffic meter daemon
+### END INIT INFO
+
+set -e
+
+. /lib/lsb/init-functions
+
+PROG="sshband"
+PROGRAM="/usr/sbin/sshband"
+PIDFILE="/var/run/sshband.pid"
+DESCR="sshband daemon"
+
+test -f $PROGRAM || exit 0
+
+# /var/run may be a tmpfs
+if [ ! -d /var/run ]; then
+  mkdir -p /var/run
+  chown root:root /var/run
+fi
+
+export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
+
+ret=0
+
+case "$1" in
+        start)
+                $PROGRAM > /dev/null &
+                exit $ret
+                ;;
+        stop)
+				test -f $PIDFILE || exit 1
+				kill -TERM `cat $PIDFILE`
+                ;;
+        restart|force-reload)
+                $0 stop
+                sleep 1
+                $0 start
+                ;;
+        *)
+                echo "Usage: $0 start|stop|restart"
+                exit 1 
+                ;;
+esac
+
+exit 0
+
