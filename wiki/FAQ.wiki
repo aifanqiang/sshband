@@ -4,3 +4,13 @@
 === I login as _root_, but I can't see bandwidth information in database for _root_ user ===
 
 sshband will not count the bandwidth for root user(which uid=0).
+
+=== Why is _sshd_ inserted into username field on my database ===
+
+Check your configuration file whether you config ssh_uid correctly. ssh_uid could be obtaind by the command following: 
+
+{{{
+cat /etc/passwd | grep sshd | awk -F ":" '{print $3}'
+}}}
+
+

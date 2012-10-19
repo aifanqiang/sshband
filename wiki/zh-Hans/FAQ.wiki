@@ -4,3 +4,13 @@
 === 我使用 root 账户登陆，但是在数据库中没有看到 root 用户的流量信息 ===
 
 sshband 不会统计 root 账户（uid=0）的流量信息。
+
+
+=== 为什么数据出中出现了 sshd 的用户 ===
+
+检查是否在配置文件中设置了正确的 ssh_uid. ssh_uid 可以通过下面的命令获取：
+
+{{{
+cat /etc/passwd | grep sshd | awk -F ":" '{print $3}'
+}}}
+
