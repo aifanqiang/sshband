@@ -1,4 +1,5 @@
 #summary Compiling and installing guide.
+#labels Featured
 
 = 1.Get source =
 
