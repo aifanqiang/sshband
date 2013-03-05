@@ -29,6 +29,7 @@ Now we are ready for compile.
 
 {{{
 cd sshband
+./configure
 make
 make install
 }}}

@@ -28,6 +28,7 @@ Debian/Ubuntu 用户执行:
 
 {{{
 cd sshband
+./configure
 make
 make install
 }}}
